@@ -1,25 +1,26 @@
-import React from 'react'
-import Table from '../components/Table'
+import SortableTable from '../components/SortableTable';
 
 function TablePage() {
     const tableData = [
-        {name: 'Apple', color: 'red', score:1},
-        {name: 'Banana', color: 'yellow', score:3},
-        {name: 'Oranges', color: 'orange', score:4}
+        {name: 'Apple', color: 'red', score:13},
+        {name: 'Oranges', color: 'orange', score:1},
+        {name: 'Banana', color: 'yellow', score:3}
     ];
 
     const config = [
         {
             label : 'Test',
             render : (fruit) => fruit.name,
+            sortValue: (fruit) => fruit.name
         },
         {
             label: 'Color',
-            render: (fruit) => <div className={`bg`}>{fruit.color}</div>
+            render: (fruit) => {fruit.color}
         },
         {
             label: 'Score',
-            render: (fruit) => fruit.score
+            render: (fruit) => fruit.score,
+            sortValue: (fruit) => fruit.score
         }
 
     ];
@@ -28,8 +29,8 @@ function TablePage() {
         return fruit.name;
     }
     return (
-        <div>
-        <Table data={tableData} config={config} keyFn={keyFn}/>
+        <div className='flex flex-row justify-center'>
+            <SortableTable data={tableData} config={config} keyFn={keyFn}/>
         </div>
     )
 }
