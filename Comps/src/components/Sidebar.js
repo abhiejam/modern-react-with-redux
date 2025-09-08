@@ -6,6 +6,7 @@ function Sidebar() {
     <div className='flex flex-column'>
       <Link to="/dropdown">Dropdown</Link>
       <Link to="/table">Table</Link>
+      <Link to="/counter">Table</Link>
     </div>
   )
 }
